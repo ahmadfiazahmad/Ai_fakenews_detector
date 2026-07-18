@@ -1,2 +1,136 @@
 # Ai_fakenews_detector
-AI-powered fake news detection system that combines Tavily Live Web Search with Groq LLMs (GPT-OSS-120B &amp; Llama 3.3-70B) to verify claims using real-time evidence, trusted sources, confidence scoring, and detailed AI explanations for accurate fact-checking.
+
+This is an AI-powered fake news and claim verification app that checks suspicious statements against live web evidence and returns an evidence-based verdict, confidence score, explanation, red flags, and source list.
+
+It is designed for students, researchers, journalists, and everyday users who want a fast way to evaluate whether a claim looks likely true, likely false, misleading, mixed, or unverified.
+
+---
+
+## Live Demo
+
+**Deployed App:** [Ai_fakenews_detector](https://huggingface.co/spaces/AhmadFiazAhmad/Ai_fakenews_detector)
+
+---
+
+## What Problem Does It Solve?
+
+False information spreads quickly on social media, messaging apps, and news feeds. Many people read a claim and have no quick way to verify whether it is trustworthy.
+
+This AI-Powered App solves this by:
+
+- taking a claim as input,
+- searching the web for live evidence,
+- ranking sources by trust signals,
+- analyzing the evidence with an AI model,
+- and presenting a clear verdict with explanation.
+
+This helps users make better decisions before believing or sharing information.
+
+---
+
+## Features
+
+- **Claim verification** from pasted text, rumor, headline, or article snippet
+- **Optional URL analysis** for related articles
+- **Live web search** using Tavily to gather current evidence
+- **Evidence ranking** using trust heuristics
+- **AI-generated verdicts** such as:
+  - Likely True
+  - Likely False
+  - Misleading
+  - Unverified
+  - Mixed Evidence
+- **Confidence score** shown as a percentage
+- **Detailed explanation** generated from evidence
+- **Key points and red flags** for quick review
+- **Source cards** with title, domain, trust label, and snippet
+- **History panel** for previous verifications
+- **Downloadable reports** in JSON and Markdown
+- **Premium Streamlit UI** with custom styling and charts
+- **Debug and settings controls** for tuning the experience
+
+---
+
+## AI Feature
+
+TruthLens AI uses a two-model LLM setup through Groq:
+
+- **Primary model:** `openai/gpt-oss-120b`
+- **Fallback model:** `llama-3.3-70b-versatile`
+
+### How the AI works
+
+1. The app first collects live evidence from Tavily.
+2. The evidence is formatted into a structured context block.
+3. A strict system prompt instructs the model to:
+   - use only the provided evidence,
+   - avoid inventing facts,
+   - return valid JSON only,
+   - provide a verdict, confidence, summary, explanation, key points, red flags, evidence used, recommendation, and safety note.
+
+### System Prompt Summary
+
+The prompt makes the model behave like a careful fact-checker:
+- evidence-driven
+- calm and non-judgmental
+- JSON-only output
+- no hallucinations
+- extra caution for health-related claims
+
+This is important because the app is not just “chatting” — it is producing structured verification results from real web evidence.
+
+---
+
+## Tools, Services, and Models Used
+
+### Development
+- Python
+- Streamlit
+- Requests
+- BeautifulSoup4
+- Plotly
+
+### AI and Search
+- Groq API
+- Tavily API
+
+### Models
+- `openai/gpt-oss-120b`
+- `llama-3.3-70b-versatile`
+
+### Deployment
+- Hugging Face Spaces
+
+---
+
+## How It Works
+
+1. User enters a claim.
+2. The app searches the web for supporting or conflicting evidence.
+3. Sources are ranked using trust heuristics.
+4. The AI model reads only the collected evidence.
+5. The app returns:
+   - verdict
+   - confidence
+   - explanation
+   - key points
+   - red flags
+   - sources used
+
+---
+
+## Screenshots
+
+Add at least 3 screenshots in the repository, for example:
+
+### 1. Main Interface
+![Main Interface](screenshots/home.png)
+
+### 2. Claim Verification Result
+![Verification Result](screenshots/result.png)
+
+### 3. Evidence and Sources
+![Evidence View](screenshots/evidence.png)
+
+---
+
