@@ -93,6 +93,14 @@ This is important because the app is not just “chatting” — it is producing
 ### AI and Search
 - Groq API
 - Tavily API
+  ## Environment Variables
+
+Create a `.env` file or configure the following secrets:
+
+```env
+GROQ_API_KEY=your_key
+TAVILY_API_KEY=your_key
+```
 
 ### Models
 - `openai/gpt-oss-120b`
@@ -121,7 +129,7 @@ This is important because the app is not just “chatting” — it is producing
 
 ## Screenshots
 
-Add at least 3 screenshots in the repository, for example:
+Screenshots of Project, for example:
 
 ### 1. Main Interface
 <img width="1920" height="1080" alt="Main Screen" src="https://github.com/user-attachments/assets/a7794a93-3fee-482f-945b-22a8f907707d" />
