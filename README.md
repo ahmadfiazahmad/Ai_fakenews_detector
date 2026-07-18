@@ -124,13 +124,20 @@ This is important because the app is not just “chatting” — it is producing
 Add at least 3 screenshots in the repository, for example:
 
 ### 1. Main Interface
-![Main Interface](screenshots/home.png)
+<img width="1920" height="1080" alt="Main Screen" src="https://github.com/user-attachments/assets/a7794a93-3fee-482f-945b-22a8f907707d" />
+
+
 
 ### 2. Claim Verification Result
-![Verification Result](screenshots/result.png)
+<img width="1920" height="1080" alt="Reuslt" src="https://github.com/user-attachments/assets/b8f38ed1-55f9-4fa0-9afe-abf4ebaf1a0a" />
+
 
 ### 3. Evidence and Sources
-![Evidence View](screenshots/evidence.png)
+<img width="1920" height="1080" alt="Evidences" src="https://github.com/user-attachments/assets/389fb67d-a296-4d35-8334-58762dbbddf6" />
+
+<img width="1920" height="1080" alt="Analysis" src="https://github.com/user-attachments/assets/83255f86-0c7a-48e5-92d3-b966f8cb6101" />
+
+
 
 ---
 
