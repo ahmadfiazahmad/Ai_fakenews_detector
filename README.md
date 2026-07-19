@@ -53,7 +53,7 @@ This helps users make better decisions before believing or sharing information.
 
 ## AI Feature
 
-TruthLens AI uses a two-model LLM setup through Groq:
+AI uses a two-model LLM setup through Groq:
 
 - **Primary model:** `openai/gpt-oss-120b`
 - **Fallback model:** `llama-3.3-70b-versatile`
