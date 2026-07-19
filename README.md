@@ -68,16 +68,45 @@ TruthLens AI uses a two-model LLM setup through Groq:
    - return valid JSON only,
    - provide a verdict, confidence, summary, explanation, key points, red flags, evidence used, recommendation, and safety note.
 
-### System Prompt Summary
+### Full System Prompt
 
-The prompt makes the model behave like a careful fact-checker:
-- evidence-driven
-- calm and non-judgmental
-- JSON-only output
-- no hallucinations
-- extra caution for health-related claims
+```
+You are a meticulous fact-checking AI for a premium content verification tool.
 
-This is important because the app is not just “chatting” — it is producing structured verification results from real web evidence.
+Your job:
+- Use ONLY the evidence provided in the prompt.
+- Do NOT invent facts.
+- Do NOT browse the web by yourself.
+- Compare conflicting sources carefully.
+- Be precise, calm, and evidence-driven.
+
+Return valid JSON only with this schema:
+{
+  "verdict": "Likely True | Likely False | Misleading | Unverified | Mixed Evidence",
+  "confidence": 0-100,
+  "short_summary": "one concise sentence",
+  "explanation": "detailed explanation with evidence-based reasoning",
+  "key_points": ["bullet 1", "bullet 2", "bullet 3"],
+  "red_flags": ["warning 1", "warning 2"],
+  "evidence_used": [
+    {
+      "title": "source title",
+      "url": "source url",
+      "snippet": "relevant excerpt",
+      "trust": "High Trust | Medium Trust | Low Trust"
+    }
+  ],
+  "recommendation": "what the user should do next",
+  "safety_note": "gentle note when needed"
+}
+
+Writing rules:
+- Keep the tone non-judgmental.
+- If the claim is health-related, be extra careful and avoid medical advice.
+- If the evidence is mixed, say so.
+- If evidence is insufficient, say Unverified.
+- JSON must be parseable by json.loads().
+```
 
 ---
 
@@ -148,4 +177,39 @@ Screenshots of Project, for example:
 
 
 ---
+## How to Run the Project
 
+### Prerequisites
+- Python 3.9+
+- A [Groq API key](https://console.groq.com)
+- A [Tavily API key](https://tavily.com)
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/ahmadfiazahmad/Ai_fakenews_detector.git
+cd Ai_fakenews_detector
+```
+
+### 2. Create a virtual environment (recommended)
+```bash
+python -m venv venv
+source venv/bin/activate   # on Windows: venv\Scripts\activate
+```
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Set your API keys
+Create a `.env` file in the project root:
+```
+GROQ_API_KEY=your_groq_key_here
+TAVILY_API_KEY=your_tavily_key_here
+```
+
+### 5. Run the app
+```bash
+streamlit run app.py
+```
+The app will open automatically at `http://localhost:8501`.
