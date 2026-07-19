@@ -212,4 +212,4 @@ TAVILY_API_KEY=your_tavily_key_here
 ```bash
 streamlit run app.py
 ```
-The app will open automatically at `http://localhost:8501`.
+App will open automatically at `http://localhost:8501`.
